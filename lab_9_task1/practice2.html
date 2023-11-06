@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Styling Control</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+        }
+        .config-panel {
+            margin-bottom: 30px;
+        }
+        #displayText {
+            padding: 20px;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+
+<div class="config-panel">
+    <label for="textColorInput">Font RGB Color: </label>
+    <input type="text" id="textColorInput" placeholder="e.g. 255,0,0" oninput="applyStyles()">
+
+    <label for="borderColorInput">Border RGB Color: </label>
+    <input type="text" id="borderColorInput" placeholder="e.g. 0,255,0" oninput="applyStyles()">
+
+    <label for="borderThicknessInput">Border Thickness (px): </label>
+    <input type="number" id="borderThicknessInput" placeholder="e.g. 5" oninput="applyStyles()">
+</div>
+
+<p id="displayText">Here's some sample text. Modify its appearance using the controls above.</p>
+
+<script>
+    function applyStyles() {
+        const textColorVal = document.getElementById("textColorInput").value;
+        const borderColorVal = document.getElementById("borderColorInput").value;
+        const borderThicknessVal = document.getElementById("borderThicknessInput").value;
+
+        let samplePara = document.getElementById("displayText");
+        samplePara.style.color = `rgb(${textColorVal})`;
+        samplePara.style.borderColor = `rgb(${borderColorVal})`;
+        samplePara.style.borderWidth = `${borderThicknessVal}px`;
+    }
+</script>
+</body>
+</html>
